@@ -1,9 +1,9 @@
-# Дана масса M в килограммах. Используя операцию деления нацело, найти количество полных тонн в ней (1 тонна = 1000 кг).
-while True:
-    try:
-        kilograms = int(input("Введите массу в килограммах: "))
-        tons = kilograms // 1000
-        print(f"Количество полных тонн: {tons}")
-        break
-    except ValueError:
-        print("Ошибка: введите число!")
+# извлеките из числа две последние цифры
+try:
+    n = int(input("Введите число: "))
+    last_two = n % 100  
+    tens = last_two // 10  
+    units = last_two % 10  
+    print(f"Последние две цифры: {tens} и {units}")
+except ValueError:
+    print("Это не число!") 
