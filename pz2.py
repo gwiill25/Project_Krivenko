@@ -5,5 +5,5 @@ while True:
         tons = kilograms // 1000
         print(f"Количество полных тонн: {tons}")
         break
-    except:
-        print("Ошибка ввода")
+    except ValueError:
+        print("Ошибка: введите число!")
