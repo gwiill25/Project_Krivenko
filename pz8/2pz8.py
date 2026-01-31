@@ -21,3 +21,4 @@ sales_dict = find_min_sales(sales_str)
 for product, values in sales_dict.items():
     min_sales = min(values)
     print(f"{product}: минимальные продажи = {min_sales}")
+
