@@ -7,6 +7,7 @@ for i in range(N):
     numbers.append(random.randint(1, 100))
 
 print("Исходный список:", numbers)
+result = numbers.copy()
 
 for i in range(len(numbers)):
     if i == 0:  
