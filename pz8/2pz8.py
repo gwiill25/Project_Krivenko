@@ -17,6 +17,7 @@ def find_min_sales(sales_str):
 
 sales_str = 'груши 45 991 63 100 12 морковь 13 47 26 0 16'
 sales_dict = find_min_sales(sales_str)
+print(sales_dict)
 
 for product, values in sales_dict.items():
     min_sales = min(values)
