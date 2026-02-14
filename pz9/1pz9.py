@@ -10,22 +10,22 @@ print(f"Вояж: {voyage}")
 print(f"РейнаТур: {reina_tur}")
 print(f"Радуга: {raduga}")
 print()
+canada_agencies = set()
+usa_agencies = set()
 
-canada_agencies = []
 if "Канада" in voyage:
-    canada_agencies.append("Вояж")
+    canada_agencies.add("Вояж")
 if "Канада" in reina_tur:
-    canada_agencies.append("РейнаТур")
+    canada_agencies.add("РейнаТур")
 if "Канада" in raduga:
-    canada_agencies.append("Радуга")
+    canada_agencies.add("Радуга")
 
-usa_agencies = []
 if "США" in voyage:
-    usa_agencies.append("Вояж")
+    usa_agencies.add("Вояж")
 if "США" in reina_tur:
-    usa_agencies.append("РейнаТур")
+    usa_agencies.add("РейнаТур")
 if "США" in raduga:
-    usa_agencies.append("Радуга")
+    usa_agencies.add("Радуга")
 
 print("Результаты:")
 print(f"Туры в Канаду можно приобрести в: {canada_agencies}")
