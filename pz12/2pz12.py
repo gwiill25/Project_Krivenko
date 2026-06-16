@@ -1,20 +1,14 @@
 #В матрице элементы последнего столбца заменить на -1.
-def replace_last_column(matrix):
+import random
 
-    return [row[:-1] + [-1] for row in matrix]
+rows = int(input("Введите количество строк: "))
+cols = int(input("Введите количество столбцов: "))
 
-matr = [
-    [1, 2, 3],
-    [4, 5, 6],
-    [7, 8, 9]
-]
+matr = [[random.randint(-10, 10) for _ in range(cols)] for _ in range(rows)]
 
-new_matr = replace_last_column(matr)
+print("Исходная матрица:\n" + "\n".join(map(str, matr)))
 
-print("Исходная матрица:")
-for row in matr:
-    print(row)
+matr = [row[:-1] + [-1] for row in matr]
 
 print("\nРезультат (последний столбец заменён на -1):")
-for row in new_matr:
-    print(row)
+print("\n".join(map(str, matr)))

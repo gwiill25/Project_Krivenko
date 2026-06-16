@@ -1,23 +1,25 @@
 #В матрице элементы строки N (N задать с клавиатуры) увеличить на 3.
-matr = [
-    [1, 2, 3],
-    [4, 5, 6],
-    [7, 8, 9]
-]
+import random
 
-print("Исходная матрица:")
-for row in matr:
-    print(row)
+rows = int(input("Введите количество строк: "))
+cols = int(input("Введите количество столбцов: "))
 
-n = int(input("Введите номер строки N (1, 2 или 3): "))
+matr = [[random.randint(-10, 10) for _ in range(cols)] for _ in range(rows)]
 
+print("Исходная матрица:\n" + "\n".join(map(str, matr)))
+
+n = int(input(f"Введите номер строки N (1, {rows}): "))
 index = n - 1
 
-if 0 <= index < len(matr):
-    matr[index] = [x + 3 for x in matr[index]]
-    print(f"\nРезультат (строка {n} увеличена на 3):")
-else:
-    print(f"\nОшибка: строки с номером {n} не существует.")
+matr = [
+    matr[i] if i != index else [x + 3 for x in matr[i]]
+    for i in range(len(matr))
+] if 0 <= index < len(matr) else matr
 
-for row in matr:
-    print(row)
+print(
+    f"\nРезультат (строка {n} увеличена на 3):"
+    if 0 <= index < len(matr)
+    else f"\nОшибка: строки с номером {n} не существует."
+)
+
+print("\n".join(map(str, matr)))

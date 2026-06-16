@@ -6,41 +6,28 @@
 #Положительные четные элементы:
 #Сумма положительных четных элементов:
 #Среднее арифметическое положительных четных элементов:
-numbers_list = ['-15 23 -8 42 -3 17 -6 31 -11 9 -24 14 -5 28 -7 19']
+numbers = [15, -3, 8, -12, 20, 6, -7, 4, 10, -5, 18, 22]
 
-with open('data_7_original.txt', 'w', encoding='utf-8') as f:
-    f.writelines(numbers_list)
+with open('numbers_7.txt', 'w', encoding='utf-8') as f:
+    f.write(' '.join(map(str, numbers)))
 
-with open('data_7_result.txt', 'w', encoding='utf-8') as f:
-    f.write('Исходные данные: ')
-    f.write('\n')
-    f.writelines(numbers_list)
+with open('numbers_7.txt', 'r', encoding='utf-8') as f:
+    nums = list(map(int, f.read().split()))
 
-with open('data_7_original.txt', 'r', encoding='utf-8') as f:
-    data = f.read()
-    numbers = data.split()
-    for i in range(len(numbers)):
-        numbers[i] = int(numbers[i])
+count = len(nums)
+mean = sum(nums) / count
 
-total_count = len(numbers)
+even_pos = [x for x in nums if x > 0 and x % 2 == 0]
+sum_even_pos = sum(even_pos)
+mean_even_pos = sum_even_pos / len(even_pos) if even_pos else 0
 
-average_all = sum(numbers) / total_count
+with open('result_7.txt', 'w', encoding='utf-8') as f:
+    f.write("Исходные данные:\n")
+    f.write(' '.join(map(str, nums)) + "\n")
+    f.write(f"Количество элементов: {count}\n")
+    f.write(f"Среднее арифметическое элементов: {mean:.2f}\n")
+    f.write(f"Положительные четные элементы: {even_pos}\n")
+    f.write(f"Сумма положительных четных элементов: {sum_even_pos}\n")
+    f.write(f"Среднее арифметическое положительных четных элементов: {mean_even_pos:.2f}\n")
 
-positive_even = [num for num in numbers if num > 0 and num % 2 == 0]
-
-sum_positive_even = sum(positive_even)
-
-if positive_even:
-    average_positive_even = sum_positive_even / len(positive_even)
-else:
-    average_positive_even = 0
-
-with open('data_7_result.txt', 'a', encoding='utf-8') as f:
-    f.write('\n')
-    f.write(f'Количество элементов: {total_count}\n')
-    f.write(f'Среднее арифметическое элементов: {average_all:.2f}\n')
-    f.write(f'Положительные четные элементы: {positive_even}\n')
-    f.write(f'Сумма положительных четных элементов: {sum_positive_even}\n')
-    f.write(f'Среднее арифметическое положительных четных элементов: {average_positive_even:.2f}\n')
-
-print("Результаты сохранены в файл 'data_7_result.txt'")
+print("Задача 1: Результат в файле 'result_7.txt'")

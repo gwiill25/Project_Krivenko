@@ -2,23 +2,16 @@
 #содержащую четные числа, и вторую – для всех остальных. Найти среднее арифметическое в полученных последовательностях.
 import random
 
-N = int(input("Введите количество элементов N: "))
+N = int(input("Введите N: "))
 
 A = [random.randint(1, 100) for _ in range(N)]
-
-print("Исходная последовательность:", A)
-
 B = [x for x in A if x % 2 == 0]
-
 C = [x for x in A if x % 2 != 0]
 
-print("Четные числа (B):", B)
-print("Нечетные числа (C):", C)
+srednee = lambda s: sum(s) / len(s) if s else 0
 
-def srednee(spisok):
-    if len(spisok) == 0:
-        return 0
-    return sum(spisok) / len(spisok)
-
-print("Среднее арифметическое четных (B):", srednee(B))
-print("Среднее арифметическое нечетных (C):", srednee(C))
+print("Исходная:", A)
+print("Четные (B):", B)
+print("Нечетные (C):", C)
+print("Среднее B:", srednee(B))
+print("Среднее C:", srednee(C))
