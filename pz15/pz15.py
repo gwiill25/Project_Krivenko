@@ -2,7 +2,7 @@
 #Код, Название препарата, Применение, Количество, Цена, Страна-производитель.
 import sqlite3 as sq
 
-with sq.connect('apteka.db') as con:
+with sq.connect('apteka.bd') as con:
     cur = con.cursor()
     cur.execute("""
         CREATE TABLE IF NOT EXISTS Medicines (
@@ -32,7 +32,7 @@ with sq.connect('apteka.db') as con:
     print("Добавлено 10 записей.\n")
 
 print("--- ПОИСК ---")
-with sq.connect('apteka.db') as con:
+with sq.connect('apteka.bd') as con:
     cur = con.cursor()
     print("1 - поиск по названию препарата")
     print("2 - поиск по стране-производителю")
@@ -58,7 +58,7 @@ with sq.connect('apteka.db') as con:
         print("Неверный выбор")
 
 print("\n--- УДАЛЕНИЕ ---")
-with sq.connect('apteka.db') as con:
+with sq.connect('apteka.bd') as con:
     cur = con.cursor()
     print("1 - удалить по id")
     print("2 - удалить по названию препарата")
@@ -81,7 +81,7 @@ with sq.connect('apteka.db') as con:
         print("Неверный выбор")
 
 print("\n--- РЕДАКТИРОВАНИЕ ---")
-with sq.connect('apteka.db') as con:
+with sq.connect('apteka.bd') as con:
     cur = con.cursor()
     print("1 - изменить цену по id")
     print("2 - изменить количество по названию препарата")
@@ -107,7 +107,7 @@ with sq.connect('apteka.db') as con:
         print("Неверный выбор")
 
 print("\n--- ВСЕ ЗАПИСИ ПОСЛЕ ИЗМЕНЕНИЙ ---")
-with sq.connect('apteka.db') as con:
+with sq.connect('apteka.bd') as con:
     cur = con.cursor()
     cur.execute("SELECT * FROM Medicines")
     for row in cur.fetchall():

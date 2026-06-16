@@ -18,7 +18,7 @@ count = len(nums)
 mean = sum(nums) / count
 
 even_pos = [x for x in nums if x > 0 and x % 2 == 0]
-sum_even_pos = sum(even_pos)
+sum_even_pos = sum(even_pos)    
 mean_even_pos = sum_even_pos / len(even_pos) if even_pos else 0
 
 with open('result_7.txt', 'w', encoding='utf-8') as f:
